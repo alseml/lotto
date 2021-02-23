@@ -372,13 +372,14 @@ function userNumberCreate(){
             var allStr = "";
 
             sort(arr, arr.length);
-            
+
+
             for(var i = 0; i < arr.length; i++){
                 var ballNumber = Math.floor(Math.random() * 9);
                 var str = `<div><div class="user_number_add">${arr[i]}</div><img class="mini_size" src="./img/ball_${ballNumber}.png" alt="로또 공 이미지"></div>`;
                 allStr += str;
             }
-            addNumbers.append(`<li>${allStr}</li>`);
+            addNumbers.append(`<li><div>${allStr}</div><button id="delete_btn" class="delete_btn">X</button></li>`);
             userNumberInClear();
         }
     }
