@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.3/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <title>로또</title>
+  </head>
+  <body>
+    <section>
+      <aside>
+        <div class="create_number_count">
+          <span> ※ 1부터 100 사이에 값만 입력 가능합니다. </span>
+          <ul>
+            <li>
+              <label>번호 중복제거</label>
+              <input
+                id="numberOverlap"
+                class="rangeCheck"
+                type="checkbox"
+                checked
+              />
+            </li>
+            <li>
+              <label>당첨번호 중복제거</label>
+              <input
+                id="numberOverlap2"
+                class="rangeCheck"
+                type="checkbox"
+                checked
+              />
+            </li>
+          </ul>
+          <div>
+            <span>몇개: </span>
+            <input
+              class="number_box"
+              type="number"
+              min="1"
+              max="100"
+              value="0"
+            />
+            <input type="button" value="시작" onclick="createStart();" />
+          </div>
+        </div>
+        <input /*type="file"*/ type="hidden" onchange="readExcel()" />
+        <div>
+          <ul class="number_save_list">
+            <li></li>
+          </ul>
+        </div>
+        <div class="my_number_save_box">
+          <span>※번호생성 후 추가 버튼을 통해 번호저장이 가능합니다.</span>
+          <div class="my_number_save">
+            <ul></ul>
+          </div>
+          <label>번호추가</label>
+          <div class="addNumber">
+            <input
+              type="text"
+              minlength="1"
+              maxlength="2"
+              class="addNumberCreate"
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+            />
+            <input
+              type="text"
+              minlength="1"
+              maxlength="2"
+              class="addNumberCreate"
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+            />
+            <input
+              type="text"
+              minlength="1"
+              maxlength="2"
+              class="addNumberCreate"
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+            />
+            <input
+              type="text"
+              minlength="1"
+              maxlength="2"
+              class="addNumberCreate"
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+            />
+            <input
+              type="text"
+              minlength="1"
+              maxlength="2"
+              class="addNumberCreate"
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+            />
+            <input
+              type="text"
+              minlength="1"
+              maxlength="2"
+              class="addNumberCreate"
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+            />
+            <input
+              type="button"
+              class="addNumberBtn"
+              value="추가"
+              onclick="userNumberCreate();"
+            />
+          </div>
+        </div>
+      </aside>
+      <main>
+        <div class="title">
+          <span>2021년 1월 1일 당첨번호</span>
+          <div class="numbers">
+            <ul>
+              <li><div>1</div></li>
+              <li><div>2</div></li>
+              <li><div>3</div></li>
+              <li><div>4</div></li>
+              <li><div>5</div></li>
+              <li><div>6</div></li>
+              <li><div>7</div></li>
+            </ul>
+          </div>
+        </div>
+
+        <content>
+          <div class="content_box">
+            <div class="lotto_img">
+              <ul class="lotto_img_list"></ul>
+            </div>
+            <div class="lotto_text">
+              <ul class="lotto_text_list"></ul>
+            </div>
+          </div>
+        </content>
+      </main>
+    </section>
+
+    <script src="javascript/index.js"></script>
+  </body>
+</html>
