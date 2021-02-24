@@ -343,6 +343,52 @@ function readExcel(){
     reader.readAsBinaryString(input.files[0])
 }
 
+// 번호 저장.
+function userNumberSave(){
+
+    var indexs = $(".my_number_save ul li");
+    var strDate = "";
+
+    for(var i = 0; i < indexs.length; i++){
+        var numbers = $(`.my_number_save ul li:nth-child(${i + 1}) > div .user_number_add`);
+        var numList = "";
+        for(var j = 0; j < numbers.length; j++){
+
+            if(j == numbers.length - 1){
+                numList += numbers[j].innerText;
+                break;
+            }
+            numList += numbers[j].innerText + ",";
+        }
+        strDate += numList + "/";
+    }
+    localStorage.setItem("myLotto",strDate);
+}
+
+// 번호 불러오기
+function userNumberLoad(){
+    var myLotto = localStorage.getItem("myLotto");
+
+    if(myLotto != null)
+    {
+        var lottoList = myLotto.split("/");
+
+        for(var i = 0; i < lottoList.length - 1; i++){
+            var addNumbers = $(".my_number_save ul");
+            var allStr = "";
+
+            var numbers = lottoList[i].split(",");
+            
+            for(var j = 0; j < numbers.length; j++){
+                var ballNumber = Math.floor(Math.random() * 9);
+                var str = `<div><div class="user_number_add">${numbers[j]}</div><img class="mini_size" src="./img/ball_${ballNumber}.png" alt="로또 공 이미지"></div>`;
+                allStr += str;
+            }
+            addNumbers.append(`<li><div>${allStr}</div><button id="delete_btn" class="delete_btn">X</button></li>`);
+        }
+    }
+}
+
 // 유저가 번호를 추가한다.
 function userNumberCreate(){
     var pass = false;
@@ -373,7 +419,6 @@ function userNumberCreate(){
 
             sort(arr, arr.length);
 
-
             for(var i = 0; i < arr.length; i++){
                 var ballNumber = Math.floor(Math.random() * 9);
                 var str = `<div><div class="user_number_add">${arr[i]}</div><img class="mini_size" src="./img/ball_${ballNumber}.png" alt="로또 공 이미지"></div>`;
@@ -381,6 +426,8 @@ function userNumberCreate(){
             }
             addNumbers.append(`<li><div>${allStr}</div><button id="delete_btn" class="delete_btn">X</button></li>`);
             userNumberInClear();
+
+            userNumberSave();
         }
     }
     
@@ -423,7 +470,8 @@ function createToUserNumberAdd(arrStr, colorArrStr){
         var str = `<div><div class="user_number_add">${arr[i]}</div><img class="mini_size" src="./img/ball_${colorArr[i]}.png" alt="로또 공 이미지"></div>`;
         allStr += str;
     }
-    addNumbers.append(`<li><div>${allStr}</div><button id="delete_btn" class="delete_btn">X</button></li>`);
+    addNumbers.append(`<li><div>${allStr}</div><button class="delete_btn">X</button></li>`);
+    userNumberSave();
 }
 
 
@@ -431,6 +479,7 @@ function createToUserNumberAdd(arrStr, colorArrStr){
 function saveNumberBallToDelete(myButton){
     $(document).on("click",".delete_btn",function(){
         $(this).parent().remove();
+        userNumberSave();
     });
 }
 
@@ -1396,3 +1445,4 @@ lottoArray.push(new Array(10,23,29,33,37,40,16));
 titleChange();
 createNumberTip();
 saveNumberBallToDelete();
+userNumberLoad();
