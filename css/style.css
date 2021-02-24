@@ -24,6 +24,8 @@ aside {
 }
 
 .create_number_count ul {
+  position: relative;
+
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -35,6 +37,75 @@ aside {
   font-family: serif;
   line-height: 2.5em;
   color: darkblue;
+  z-index: 1;
+}
+
+.tip_text,
+.tip_text2 {
+  display: none;
+  position: absolute;
+  width: auto;
+  height: auto;
+  background: rgb(55, 55, 55);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+
+  left: 29px;
+  top: 17px;
+
+  z-index: 2;
+}
+
+.tip_text2 {
+  top: 56px;
+}
+
+.tip_text > span,
+.tip_text2 > span {
+  color: bisque;
+  font-family: revert;
+  font-size: 13px;
+  line-height: 1.5em;
+  padding: 2px;
+}
+
+.create_number_count ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tip_1,
+.tip_2 {
+  position: absolute;
+  left: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 11px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  color: black;
+  font-weight: bold;
+  font-family: revert;
+  line-height: 1em;
+  text-align: center;
+  background: lightskyblue;
+}
+
+.tip_1:hover,
+.tip_2:hover {
+  cursor: pointer;
+  background: black;
+  color: lightskyblue;
+}
+
+.check_list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .create_number_count {
@@ -55,7 +126,7 @@ aside {
   color: red;
 }
 
-.create_number_count div {
+.create_number_count > div {
   display: flex;
   justify-content: center;
 }

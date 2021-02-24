@@ -12,29 +12,44 @@
     <section>
       <aside>
         <div class="create_number_count">
-          <span> ※ 1부터 100 사이에 값만 입력 가능합니다. </span>
+          <span> ※ 1~100개 사이의 숫자만 생성 가능합니다.</span>
           <ul>
             <li>
-              <label>번호 중복제거</label>
-              <input
-                id="numberOverlap"
-                class="rangeCheck"
-                type="checkbox"
-                checked
-              />
+              <div class="tip_1">i</div>
+              <div class="tip_text">
+                <span
+                  >여러개의 번호를 생성했을 때 같은 번호가 생성되지 않게
+                  합니다.</span
+                >
+              </div>
+              <div class="check_list">
+                <label>번호 중복제거</label>
+                <input
+                  id="numberOverlap"
+                  class="rangeCheck"
+                  type="checkbox"
+                  checked
+                />
+              </div>
             </li>
             <li>
-              <label>당첨번호 중복제거</label>
-              <input
-                id="numberOverlap2"
-                class="rangeCheck"
-                type="checkbox"
-                checked
-              />
+              <div class="tip_2">i</div>
+              <div class="tip_text2">
+                <span>역대 1등 당첨번호를 제외한 번호를 뽑습니다.</span>
+              </div>
+              <div class="check_list">
+                <label>당첨번호 중복제거</label>
+                <input
+                  id="numberOverlap2"
+                  class="rangeCheck"
+                  type="checkbox"
+                  checked
+                />
+              </div>
             </li>
           </ul>
           <div>
-            <span>몇개: </span>
+            <span>번호생성: </span>
             <input
               class="number_box"
               type="number"
@@ -42,7 +57,7 @@
               max="100"
               value="0"
             />
-            <input type="button" value="시작" onclick="createStart();" />
+            <input type="button" value="생성" onclick="createStart();" />
           </div>
         </div>
         <input /*type="file"*/ type="hidden" onchange="readExcel()" />

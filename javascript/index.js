@@ -483,6 +483,23 @@ function saveNumberBallToDelete(myButton){
     });
 }
 
+// 중복체크 제거에 대한 설명 박스 출력
+function tipBoxDisplay(){
+    $(".tip_1").on("mouseover",function(){
+        $(".tip_text").css("display","flex");
+    });
+    $(".tip_2").on("mouseover",function(){
+        $(".tip_text2").css("display","flex");
+    });
+
+    $(".tip_1").on("mouseout",function(){
+        $(".tip_text").css("display","none");
+    });
+    $(".tip_2").on("mouseout",function(){
+        $(".tip_text2").css("display","none");
+    });
+}
+
 //getLottoNumber();
 
 
@@ -1446,3 +1463,4 @@ titleChange();
 createNumberTip();
 saveNumberBallToDelete();
 userNumberLoad();
+tipBoxDisplay();
