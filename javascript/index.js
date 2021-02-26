@@ -524,6 +524,8 @@ function getLatestWinningNumber(){
         dataType : "json",
         url : "https://smok95.github.io/lotto/results/latest.json",
         success : function(data) {
+            console.log("test");
+            alert(data);
             console.log(data);
         }
     })
