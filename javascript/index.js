@@ -505,6 +505,29 @@ function tipBoxDisplay(){
 
 var lottoArray = new Array();
 
+// 최신 당첨 번호를 가져온다.
+function getLatestWinningNumber(){
+    //https://smok95.github.io/lotto/results/latest.json
+
+    // $(document).ready(function(){
+    //     $.ajax({
+    //         crossOrigin : true,
+    //         dataType : "json",
+    //         url : "https://smok95.github.io/lotto/results/latest.json",
+    //         success : function(data) {
+    //             console.log(data);
+    //         }
+    //     })
+    // })
+    $.ajax({
+        crossOrigin : true,
+        dataType : "json",
+        url : "https://smok95.github.io/lotto/results/latest.json",
+        success : function(data) {
+            console.log(data);
+        }
+    })
+}
 
 // 맨위가 최신 회차임.
 lottoArray.push(new Array(2,12,30,31,39,43,38));
@@ -1464,3 +1487,4 @@ createNumberTip();
 saveNumberBallToDelete();
 userNumberLoad();
 tipBoxDisplay();
+getLatestWinningNumber();
