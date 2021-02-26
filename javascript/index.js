@@ -529,6 +529,15 @@ function getLatestWinningNumber(){
             console.log(data);
         }
     })
+
+    $.ajax({
+        dataType : 'jsonp',
+        jsonpCallback: "callback",
+        url: "https://smok95.github.io/lotto/results/latest.json",
+        success: function(data) {
+          console.log(data);
+        }
+      });
 }
 
 // 맨위가 최신 회차임.
