@@ -519,16 +519,16 @@ function getLatestWinningNumber(){
     //         }
     //     })
     // })
-    $.ajax({
-        crossOrigin : true,
-        dataType : "json",
-        url : "https://smok95.github.io/lotto/results/latest.json",
-        success : function(data) {
-            console.log("test");
-            alert(data);
-            console.log(data);
-        }
-    })
+    // $.ajax({
+    //     crossOrigin : true,
+    //     dataType : "json",
+    //     url : "https://smok95.github.io/lotto/results/latest.json",
+    //     success : function(data) {
+    //         console.log("test");
+    //         alert(data);
+    //         console.log(data);
+    //     }
+    // })
 
     $.ajax({
         dataType : 'jsonp',
