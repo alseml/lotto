@@ -545,6 +545,7 @@ function getLatestWinningNumber(){
 }
 
 // 맨위가 최신 회차임.
+lottoArray.push(new Array(1,6,13,37,38,40,9));
 lottoArray.push(new Array(1,21,25,29,34,37,36));
 lottoArray.push(new Array(2,13,25,28,29,36,34));
 lottoArray.push(new Array(6,21,36,38,39,43,30));
